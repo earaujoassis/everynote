@@ -1,0 +1,21 @@
+<aside class="dialog post-redict">
+  <form name="postForm" novalidate>
+    <fieldset>
+      <legend ng-show="!post._id">New post entry</legend>
+      <legend ng-show="post._id">Update post entry</legend>
+
+      <div class="form-group">
+        <label for="post-title">Title</label>
+        <input ng-model="post.title" required autofocus ng-maxlength="70" maxlength="70" type="text" class="form-control" id="post-title" placeholder="Enter title">
+      </div>
+
+      <div class="form-group">
+        <label for="post-content">Post content</label>
+        <textarea ng-model="post.text" required ng-maxlength="350" maxlength="350" class="form-control" id="post-content" placeholder="Enter content"></textarea>
+      </div>
+
+      <button ng-click="save(post)" ng-disabled="postForm.$invalid" type="submit" class="btn btn-primary">Save</button>
+      <a href="/" class="btn btn-default">Cancel</a>
+    </fieldset>
+  </form>
+</aside>

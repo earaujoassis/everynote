@@ -1,0 +1,45 @@
+<!doctype html>
+<html dir="ltr" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Ea Stack example application, Everynote">
+    <meta name="keywords" content="webapp, boilerplate, stack, web, app, application">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Ea Stack : Everynote</title>
+  </head>
+  <body>
+    <div class="app-container" role="main" ng-controller="AppCtrl">
+      <header class="main-header">
+        <h1 class="branding"><a href="/">Everynote</a></h1>
+        <a href="#" class="menu-caller">
+          <span class="stripe"></span>
+          <span class="stripe"></span>
+          <span class="stripe"></span>
+        </a>
+        <div class="main-menu" role="menu">
+          <dl class="nav" role="navigation">
+            <dt>Posts</dt>
+            <dd ng-class="{true: 'active', false: 'inactive'}[isActiveUrl('/')]"><a href="/">All posts</a></dd>
+            <dd ng-class="{true: 'active', false: 'inactive'}[isActiveUrl('/posts/new')]"><a href="/posts/new">New post</a></dd>
+            <dd><span>Search</span></dd>
+          </dl>
+        </div>
+        <div class="spinner"><span class="dot-slow"></span><span class="dot-fast"></span></div>
+      </header>
+      <div class="horizontal-content">
+        <div class="horizontal-wrapper">
+          <div class="main-container">
+            <div class="over-container" ng-view></div>
+            <div class="articles-container" ng-class="{true: 'postsControllerActive'}[isActiveController('PostsController')]" ng-include="'/app/partials/posts.html'"></div>
+          </div>
+        </div>
+      </div>
+      <footer class="main-footer">
+        <p>Copyright <span ng-bind="year"></span> &copy; Ewerton Assis</p>
+        <p>Reach me on <a href="//github.com/earaujoassis">GitHub</a>, <a href="//twitter.com/earaujoassis">Twitter</a>, and <a href="//facebook.com/earaujoassis">Facebook</a></p>
+      </footer>
+    </div>
+    <script data-main="app/main" src="/components/requirejs/require.js"></script>
+  </body>
+</html>

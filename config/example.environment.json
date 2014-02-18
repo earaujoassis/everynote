@@ -1,0 +1,17 @@
+{
+  "maxAge": 2678400000,
+  "server": {
+    "port": 3000,
+    "cookieSecret": "cookie secret string",
+    "sessionSecret": "session secret string"
+  },
+  "database": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "posts_environment"
+  },
+  "redis": {
+    "host": "localhost",
+    "port": 6379
+  }
+}

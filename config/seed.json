@@ -1,0 +1,29 @@
+{
+  "models": [
+    {
+      "model": "PostModel",
+      "entries": [
+        {
+          "title": "Donec eleifend sit amet felis quis ultrices. Duis feugiat, lorem amet.",
+          "text": "Aliquam mollis, enim at consectetur commodo, erat odio tempor diam, sed porttitor odio massa at justo. Donec leo orci, posuere et erat vel, rutrum adipiscing justo. Maecenas eu lorem sit amet tellus tincidunt venenatis. Vestibulum vehicula magna non nulla fermentum viverra. Maecenas in venenatis turpis. Nunc tincidunt nisi eget lacus gravida metus.",
+          "favorite": false
+        },
+        {
+          "title": "Praesent ac sapien diam. Sed accumsan arcu urna, eu aliquet neque sed.",
+          "text": "Sed rutrum quis augue ac aliquet. Aliquam erat volutpat. Praesent posuere volutpat leo, non facilisis tortor tempus sit amet. Nunc leo augue, porttitor a enim sed, auctor placerat sapien. Pellentesque in enim sit amet lectus bibendum scelerisque. Curabitur tristique adipiscing metus at porttitor. Sed hendrerit felis sit amet nisi hendrerit posuere.",
+          "favorite": false
+        },
+        {
+          "title": "Duis pellentesque, mauris ut varius rhoncus, ante sapien vehicula sed.",
+          "text": "Nunc porttitor pulvinar risus id lobortis. Duis molestie vulputate neque, a sagittis enim luctus volutpat. Sed dui elit, ullamcorper a odio sed, sollicitudin venenatis tellus. Nulla mauris ipsum, pellentesque quis justo nec, suscipit consequat elit. Nunc non nisi cursus, varius nunc varius, malesuada lectus. Cras nulla orci, sollicitudin nec metus.",
+          "favorite": true
+        },
+        {
+          "title": "Duis gravida, metus nec venenatis luctus, nisi libero cursus volutpat.",
+          "text": "Sed auctor bibendum nisi eget elementum. Proin bibendum malesuada iaculis. Donec iaculis vel ipsum consectetur rutrum. Quisque posuere nisl diam, in auctor nisl cursus ut. Fusce libero purus, placerat scelerisque dui ac, scelerisque aliquam nulla. Sed eget ultrices erat. Phasellus ac hendrerit elit. Phasellus mattis lacus et mauris blandit posuere.",
+          "favorite": false
+        }
+      ]
+    }
+  ]
+}
