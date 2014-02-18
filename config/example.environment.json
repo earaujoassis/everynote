@@ -8,7 +8,7 @@
   "database": {
     "host": "localhost",
     "port": 27017,
-    "database": "posts_environment"
+    "database": "database_environment"
   },
   "redis": {
     "host": "localhost",

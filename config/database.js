@@ -10,14 +10,11 @@ module.exports = function (settings) {
         return instance;
     }
 
-    instance.connect([
-        "mongodb://",
-        settings.get("database:host"),
-        ":",
-        settings.get("database:port"),
-        "/",
-        settings.get("database:database")
-    ].join(""));
+    instance
+        .connect(
+            ["mongodb://", settings.get("database:host"), ":", settings.get("database:port"), "/", settings.get("database:database")]
+                .join("")
+        );
 
     return instance;
 };

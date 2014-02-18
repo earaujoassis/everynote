@@ -20,7 +20,7 @@
 2. Create configuration files for each usable environment (see config/example.environment.json for
 an example). Files should be something like <environment:development|production>.json.
 
-3. [Optional] Seed the mongoDB database with preliminary entries.
+3. [Optional] Seed the mongoDB database with preliminary entries
 
    ```sh
    $ grunt seed
@@ -35,7 +35,7 @@ an example). Files should be something like <environment:development|production>
 4. Or just run
 
    ```sh
-   $ grunt server
+   $ NODE_ENV=<environment> grunt server
    ```
 
 
