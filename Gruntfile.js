@@ -92,21 +92,34 @@ module.exports = function (grunt) {
                     cwd: __dirname
                 }
             }
+        },
+
+        mochaTest: {
+            unit: {
+                options: {
+                    reporter: 'spec'
+                },
+                src: ['tests/unit/*.js']
+            }
         }
 
     });
 
+    grunt.task.loadTasks('tasks/');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
-    grunt.task.loadTasks('tasks/');
+    grunt.loadNpmTasks('grunt-mocha-test');
+
 
     grunt.registerTask('assets', ['jshint', 'uglify', 'less']);
     grunt.registerTask('server', ['assets', 'nodemon:web']);
     grunt.registerTask('server:watch', ['concurrent']);
     grunt.registerTask('default', ['server']);
+    grunt.registerTask('test:unit', ['mochaTest:unit']);
+    grunt.registerTask('test', ['test:unit']);
 
 };

@@ -2,5 +2,6 @@ node_modules/
 public/components/
 config/development.json
 config/production.json
+config/test.json
 *.min.js
 *.css
