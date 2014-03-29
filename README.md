@@ -2,7 +2,6 @@
 
 > Just another MEAN (MongoDB, Node.js/Express, and AngularJS) stack
 
-
 ## Bootstrapping
 
 0. Clone this repo
@@ -55,6 +54,6 @@ There is an Application written in this Stack as a way to showcase its potential
 The Application, named "Everynote", is not intented to be used commercially nor to be used as part
 of any further application.
 
-Please refer to the included **LICENCE file** for terms of use.
+Please refer to the included **LICENSE file** for terms of use.
 
 [MIT License](http://ewerton-araujo.mit-license.org/) &copy; Ewerton Assis
