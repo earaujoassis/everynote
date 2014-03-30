@@ -1,13 +1,13 @@
-# Ea stack
+# Everynote
 
-> Just another MEAN (MongoDB, Node.js/Express, and AngularJS) stack
+> It is both a mobile-first/offline-first MEPAN stack (MongoDB, Node.js/Express, PouchDB, and AngularJS) and a webapp; you may decide
 
 ## Bootstrapping
 
 0. Clone this repo
 
    ```sh
-   $ git clone git@github.com:earaujoassis/ea-stack.git
+   $ git clone git@github.com:earaujoassis/everynote.git
    ```
 
 1. Install dependencies
@@ -19,7 +19,7 @@
 2. Create configuration files for each usable environment (see config/example.environment.json for
 an example). Files should be something like <environment:development|production>.json.
 
-3. [Optional] Seed the mongoDB database with preliminary entries
+3. [Optional] Seed the MongoDB database with preliminary entries
 
    ```sh
    $ grunt seed
@@ -50,9 +50,7 @@ The created file should be named config/test.json (mandatory or you may change i
 
 ## License
 
-There is an Application written in this Stack as a way to showcase its potential and how it works.
-The Application, named "Everynote", is not intented to be used commercially nor to be used as part
-of any further application.
+There is an Application written in this Stack as a way to showcase its potential and how it works. The Application, named "Everynote", is not intented to be used commercially nor to be used as part of any further application.
 
 Please refer to the included **LICENSE file** for terms of use.
 
