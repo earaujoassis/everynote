@@ -1,8 +1,8 @@
 <aside class="dialog post-redict">
   <form name="postForm" novalidate>
     <fieldset>
-      <legend ng-show="!post._id">New post entry</legend>
-      <legend ng-show="post._id">Update post entry</legend>
+      <legend ng-show="!post._id">New note entry</legend>
+      <legend ng-show="post._id">Update note entry</legend>
 
       <div class="form-group">
         <label for="post-title">Title</label>
@@ -10,7 +10,7 @@
       </div>
 
       <div class="form-group">
-        <label for="post-content">Post content</label>
+        <label for="post-content">Note content</label>
         <textarea ng-model="post.text" required ng-maxlength="350" maxlength="350" class="form-control" id="post-content" placeholder="Enter content"></textarea>
       </div>
 

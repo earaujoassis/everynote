@@ -25,20 +25,15 @@
     "tests"
   ],
   "dependencies": {
-    "q": "~1.0.0",
-    "async": "~0.2.10",
     "requirejs": "~2.1.10",
-    "underscore": "~1.5.2",
     "modernizr": "~2.7.1",
-    "SimpleStateManager": "~2.2.3",
     "angular-resource": "~1.2.10",
     "angular-route": "~1.2.10",
     "angular-sanitize": "~1.2.10",
     "angular-ui-router": "<0.2.8",
-    "yui3": "~3.14.1",
     "jquery": "~2.0.3",
     "bootstrap": "~3.1.1",
-    "perfect-scrollbar": "~0.4.8",
-    "normalize-less": "*"
+    "normalize-less": "*",
+    "SimpleStateManager": "~2.2.4"
   }
 }

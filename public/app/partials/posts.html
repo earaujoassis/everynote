@@ -1,14 +1,18 @@
 <article ng-repeat="post in posts" class="entry">
-  <div class="content-box" ng-class="{'favorite': post.favorite}">
+  <div class="content-box">
     <h2 class="title">{{ post.title }}</h2>
     <div>{{ post.text }}</div>
   </div>
   <div class="meta-box">
-    <time datetime="2014-02-14" class="datetime">{{ post.date | date:'MMM d, yyyy' }}</time>
-    <ul class="options" role="menu">
-      <li><a href="#" ng-click="setFavoritePost(post._id)" title="Favorite" class="icon-options icon-favorite"></a></li>
-      <li><a href="/posts/{{ post._id }}" title="Update" class="icon-options icon-edit"></a></li>
-      <li><a href="#" ng-click="removePost(post._id)" title="Remove" class="icon-options icon-delete"></a></li>
-    </ul>
+    <div class="row" role="menu">
+      <span class="option col-md-3"><i class="icon-time"></i> <time datetime="{{ post.date | date:'yyyy-mm-dd' }}" class="datetime">{{ post.date | date:'MMM d, yyyy' }}</time></span>
+      <span class="option col-md-3">
+        <i class="icon-favorite"></i>
+        <a href="#" ng-show="!post.favorite" ng-click="setFavoritePost(post._id, true)" title="Favorite">Love it?</a>
+        <span ng-show="post.favorite">It's favorite! <a href="#" ng-click="setFavoritePost(post._id, false)" title="Unfavorite">(Undo?)</a></span>
+      </span>
+      <span class="option col-md-3"><a href="/posts/{{ post._id }}" title="Update"><i class="icon-edit"></i> Update</a></span>
+      <span class="option col-md-3"><a href="#" ng-click="removePost(post._id)" title="Remove"><i class="icon-delete"></i> Remove</a></span>
+    </div>
   </div>
 </article>

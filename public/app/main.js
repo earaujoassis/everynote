@@ -1,9 +1,6 @@
 require.config({
     baseUrl: "app",
     paths: {
-        Q: "../components/q/q",
-        async: "../components/async/lib/async",
-        underscore: "../components/underscore/underscore-min",
         angular: "../components/angular/angular.min",
         ngResource: "../components/angular-resource/angular-resource.min",
         ngRoute: "../components/angular-route/angular-route.min",
@@ -11,23 +8,14 @@ require.config({
         ngUIRouter: "../components/angular-ui-router/release/angular-ui-router.min",
         modernizr: "../components/modernizr/modernizr",
         modernizrCssCalc: "../components/modernizr/feature-detects/css-calc",
-        YUI: "../components/yui3/build/yui/yui-min",
         SimpleStateManager: "../components/SimpleStateManager/dist/ssm.min",
         jquery: "../components/jquery/jquery.min",
-        perfectScrollbar: "../components/perfect-scrollbar/min/perfect-scrollbar-0.4.8.with-mousewheel.min",
-        dimensionalConcerns: "/javascripts/dimensional-concerns.min",
         menuConcerns: "/javascripts/menu-concerns.min"
     },
     packages: [
         "application"
     ],
     shim: {
-        Q: {
-            exports: "Q"
-        },
-        async: {
-            exports: "async"
-        },
         angular: {
             exports: "angular"
         },
@@ -43,15 +31,8 @@ require.config({
         ngUIRouter: {
             deps: ["angular"]
         },
-        YUI: {
-            exports: "YUI"
-        },
         jquery: {
             exports: "jquery"
-        },
-        perfectScrollbar: {
-            exports: "perfectScrollbar",
-            deps: ["jquery"]
         },
         modernizr: {
             exports: "modernizr"
@@ -62,10 +43,6 @@ require.config({
         },
         SimpleStateManager: {
             exports: "SimpleStateManager"
-        },
-        dimensionalConcerns: {
-            exports: "dimensionalConcerns",
-            deps: ["Q", "async", "jquery", "YUI", "SimpleStateManager", "perfectScrollbar"]
         },
         menuConcerns: {
             exports: "menuConcerns",
@@ -83,23 +60,33 @@ require([
     "ngUIRouter",
     "modernizr",
     "modernizrCssCalc",
+    "SimpleStateManager",
     "underscore",
     "application",
-    "dimensionalConcerns",
     "menuConcerns"
-], function () {
+], function (angular) {
     "use strict";
 
-    var angular, dimensionalConcerns;
+    var menuConcerns = arguments[10];
 
-    angular = arguments[0];
-    dimensionalConcerns = arguments[9];
+    ssm
+        .addState({
+            id: "desktop",
+            minWidth: 992,
+            onEnter: function () {
+                menuConcerns.set();
+            }
+        })
+        .addState({
+            id: "mobile",
+            maxWidth: 991,
+            onEnter: function () {
+                menuConcerns.set();
+            }
+        })
+        .ready();
 
     angular.element(document).ready(function () {
         angular.bootstrap(document, ["app"]);
-        dimensionalConcerns.then(function (dC) {
-            document.dimensionalConcerns = dC;
-            dC.set();
-        });
     });
 });

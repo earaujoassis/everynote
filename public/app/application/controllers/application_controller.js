@@ -26,10 +26,10 @@ define(["angular", "application"], function (angular) {
                 }
             };
 
-            $scope.setFavoritePost = function (postId) {
+            $scope.setFavoritePost = function (postId, status) {
                 /* FIX Show a spinning while updating */
                 PostsServices
-                    .update(postId, { favorite : true })
+                    .update(postId, { favorite : !!status })
                     .then(function (value) {
                         var post = _.findWhere($rootScope.posts, { "_id": value._id });
                         post.favorite = true;
@@ -49,12 +49,6 @@ define(["angular", "application"], function (angular) {
                         }
                     });
             };
-
-            $rootScope.$watchCollection("posts", function(newValue, oldValue) {
-                if (document.dimensionalConcerns) {
-                    document.dimensionalConcerns.setArticlesBox(newValue.length);
-                }
-            }, true);
 
             $rootScope.$on("$routeChangeSuccess", function (ev, data) {
                 if (data.$$route && data.$$route.controller) {

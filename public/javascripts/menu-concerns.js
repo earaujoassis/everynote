@@ -1,32 +1,35 @@
 define("menuConcerns", ["jquery", "modernizr"], function (jQuery) {
     "use strict";
 
+    var openMenu, closeMenu;
+
+    openMenu = function () {
+        jQuery(".main-header").stop().animate({
+            left: "-40px"
+        }, 200);
+    };
+
+    closeMenu = function () {
+        jQuery(".main-header").stop().animate({
+            left: "-320px"
+        }, 125);
+    };
+
     return {
         set: function () {
             if (Modernizr.mq("only all and (max-width: 992px)")) {
                 jQuery(".menu-caller").on("click", function (e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    jQuery(".main-menu").addClass("focus");
 
-                    jQuery("html, document").on("click", function eventHandler () {
-                        jQuery("html, document").off("click", eventHandler);
-                        if (jQuery(".main-menu").is(".focus")) {
-                            jQuery(".main-menu").removeClass("focus");
-                        }
-                    });
+                    openMenu();
                 });
+                jQuery(".main-header a, .main-container").on("click", closeMenu);
             } else {
                 jQuery(".menu-caller").off("click");
+                jQuery(".main-header").removeAttr("style");
+                jQuery(".main-header a, .main-container").off("click", closeMenu);
             }
-        },
-
-        enableSpinner: function () {
-            jQuery(".spinner").removeClass("stop");
-        },
-
-        disableSpinner: function () {
-            jQuery(".spinner").addClass("stop");
         }
     };
 });
