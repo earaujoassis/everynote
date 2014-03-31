@@ -1,13 +1,24 @@
-define("posts_storage", ["angular", "application", "pouchdb"], function (angular) {
+define("posts_storage", ["pouchdb", "q"], function (PouchDB, Q) {
     "use strict";
 
-    var db = new PouchDB("everynote-posts");
-      , remoteCouch = false;
+    PouchDB.enableAllDbs = true;
 
+    var db = new PouchDB("everynote-posts")
+      , remoteCouch = false;
 
     return {
         findAll: function () {
+            var deferred = Q.defer();
 
+            db.allDocs({ include_docs: true, descending: true }, function (err, data) {
+                if (err) {
+                    deferred.reject;
+                } else {
+                    deferred.resolve(data.rows);
+                }
+            });
+
+            return deferred.promise;
         },
 
         create: function (post) {
@@ -30,17 +41,31 @@ define("posts_storage", ["angular", "application", "pouchdb"], function (angular
             return deferred.promise;
         },
 
-        update: function (_id, post) {
+        update: function (post) {
+            if (!post._rev) {
+                delete post._id;
+            }
 
+            return this.create(post);
         },
 
-        destroy: function (_id) {
+        destroy: function (_id, _rev) {
+            var deferred = Q.defer();
 
+            db.remove({ _id: _id, _rev: _rev }, function (err, data) {
+                if (err) {
+                    deferred.reject;
+                } else {
+                    deferred.resolve(data);
+                }
+            });
+
+            return deferred.promise;
         },
 
         sync: function () {
 
         }
-    }
+    };
 
 });

@@ -1,13 +1,14 @@
 require.config({
     baseUrl: "app",
     paths: {
+        q: "../components/q/q",
         underscore: "../components/underscore/underscore",
+        pouchdb: "../components/pouchdb/dist/pouchdb-nightly.min",
         angular: "../components/angular/angular.min",
         ngResource: "../components/angular-resource/angular-resource.min",
         ngRoute: "../components/angular-route/angular-route.min",
         ngSanitize: "../components/angular-sanitize/angular-sanitize.min",
         ngUIRouter: "../components/angular-ui-router/release/angular-ui-router.min",
-        pouchdb: "../components/pouchdb/dist/pouchdb-nightly.min",
         modernizr: "../components/modernizr/modernizr",
         modernizrCssCalc: "../components/modernizr/feature-detects/css-calc",
         SimpleStateManager: "../components/SimpleStateManager/dist/ssm.min",
@@ -18,11 +19,9 @@ require.config({
         "application"
     ],
     shim: {
-        underscore: {
-            exports: "underscore"
-        },
         angular: {
-            exports: "angular"
+            exports: "angular",
+            deps: ["pouchdb"]
         },
         ngResource: {
             deps: ["angular"]
@@ -39,6 +38,9 @@ require.config({
         jquery: {
             exports: "jquery"
         },
+        underscore: {
+            exports: "underscore"
+        },
         modernizr: {
             exports: "modernizr"
         },
@@ -53,7 +55,6 @@ require.config({
             exports: "menuConcerns",
             deps: ["jquery", "modernizr"]
         }
-
     }
 });
 
@@ -64,6 +65,7 @@ require([
     "ngResource",
     "ngUIRouter",
     "underscore",
+    "pouchdb",
     "modernizr",
     "modernizrCssCalc",
     "SimpleStateManager",
@@ -73,7 +75,7 @@ require([
 ], function (angular) {
     "use strict";
 
-    var menuConcerns = arguments[11];
+    var menuConcerns = arguments[12];
 
     ssm
         .addState({

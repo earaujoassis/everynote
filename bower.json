@@ -36,6 +36,7 @@
     "normalize-less": "*",
     "SimpleStateManager": "~2.2.4",
     "pouchdb": "~2.0.1",
-    "underscore": "~1.6.0"
+    "underscore": "~1.6.0",
+    "q": "~2.0.0"
   }
 }

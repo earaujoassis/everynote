@@ -1,4 +1,4 @@
-define(["angular", "application", "posts_storage"], function (angular) {
+define(["angular", "posts_storage", "application"], function (angular, localStorage) {
     "use strict";
 
     angular.module("app.services").service("PostsServices", [
