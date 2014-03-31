@@ -27,17 +27,15 @@ define(["angular", "application"], function (angular) {
             };
 
             $scope.setFavoritePost = function (postId, status) {
-                /* FIX Show a spinning while updating */
                 PostsServices
                     .update(postId, { favorite : !!status })
                     .then(function (value) {
                         var post = _.findWhere($rootScope.posts, { "_id": value._id });
-                        post.favorite = true;
+                        post.favorite = !!status;
                     });
             };
 
             $scope.removePost = function (postId) {
-                /* FIX Show a spinning while updating */
                 PostsServices
                     .destroy(postId)
                     .then(function (value) {

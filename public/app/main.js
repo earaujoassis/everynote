@@ -4,6 +4,7 @@ require.config({
         q: "../components/q/q",
         underscore: "../components/underscore/underscore",
         pouchdb: "../components/pouchdb/dist/pouchdb-nightly.min",
+        offline: "../components/offline/offline.min",
         angular: "../components/angular/angular.min",
         ngResource: "../components/angular-resource/angular-resource.min",
         ngRoute: "../components/angular-route/angular-route.min",
@@ -65,7 +66,6 @@ require([
     "ngResource",
     "ngUIRouter",
     "underscore",
-    "pouchdb",
     "modernizr",
     "modernizrCssCalc",
     "SimpleStateManager",
@@ -75,7 +75,7 @@ require([
 ], function (angular) {
     "use strict";
 
-    var menuConcerns = arguments[12];
+    var menuConcerns = arguments[11];
 
     ssm
         .addState({

@@ -6,10 +6,7 @@ define(["angular", "application"], function (angular) {
         "$rootScope",
         "$timeout",
         function ($scope, $rootScope, $timeout) {
-            /* FIX BUG For some reason this sections appears blank */
-            $timeout(function () {
-                jQuery(".articles-container").fadeIn();
-            });
+
         }
     ]);
 });

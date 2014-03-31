@@ -17,7 +17,6 @@ define(["angular", "application"], function (angular) {
             }
 
             $scope.save = function (post) {
-                /* FIX Show a spinning while updating */
                 if (post._id) {
                     var postId = post._id;
 
