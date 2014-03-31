@@ -1,6 +1,7 @@
 define([
     "angular",
     "./module",
+    "./storage/posts_storage.js",
     "./services/posts_services",
     "./controllers/application_controller",
     "./controllers/home_controller",

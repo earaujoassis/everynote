@@ -1,11 +1,13 @@
 require.config({
     baseUrl: "app",
     paths: {
+        underscore: "../components/underscore/underscore",
         angular: "../components/angular/angular.min",
         ngResource: "../components/angular-resource/angular-resource.min",
         ngRoute: "../components/angular-route/angular-route.min",
         ngSanitize: "../components/angular-sanitize/angular-sanitize.min",
         ngUIRouter: "../components/angular-ui-router/release/angular-ui-router.min",
+        pouchdb: "../components/pouchdb/dist/pouchdb-nightly.min",
         modernizr: "../components/modernizr/modernizr",
         modernizrCssCalc: "../components/modernizr/feature-detects/css-calc",
         SimpleStateManager: "../components/SimpleStateManager/dist/ssm.min",
@@ -16,6 +18,9 @@ require.config({
         "application"
     ],
     shim: {
+        underscore: {
+            exports: "underscore"
+        },
         angular: {
             exports: "angular"
         },
@@ -58,6 +63,7 @@ require([
     "ngSanitize",
     "ngResource",
     "ngUIRouter",
+    "underscore",
     "modernizr",
     "modernizrCssCalc",
     "SimpleStateManager",
@@ -67,7 +73,7 @@ require([
 ], function (angular) {
     "use strict";
 
-    var menuConcerns = arguments[10];
+    var menuConcerns = arguments[11];
 
     ssm
         .addState({
