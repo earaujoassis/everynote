@@ -7,12 +7,15 @@ define(["angular", "posts_storage", "application"], function (angular, localStor
         function ($http, $q) {
             this.findAll = function () {
                 var deferred = $q.defer();
+                NProgress.start();
 
                 $http({ method: "GET", url: "/api/posts" })
                     .success(function (data) {
+                        NProgress.done();
                         deferred.resolve(data);
                     })
                     .error(function (reason) {
+                        NProgress.done();
                         deferred.reject;
                     });
 
@@ -21,12 +24,15 @@ define(["angular", "posts_storage", "application"], function (angular, localStor
 
             this.create = function (post) {
                 var deferred = $q.defer();
+                NProgress.start();
 
                 $http({ method: "POST", data: post, url: "/api/posts" })
                     .success(function (data) {
+                        NProgress.done();
                         deferred.resolve(data);
                     })
                     .error(function (reason) {
+                        NProgress.done();
                         deferred.reject;
                     });
 
@@ -35,12 +41,15 @@ define(["angular", "posts_storage", "application"], function (angular, localStor
 
             this.update = function (_id, post) {
                 var deferred = $q.defer();
+                NProgress.start();
 
                 $http({ method: "PUT", data: post, url: "/api/posts/" + _id })
                     .success(function (data) {
+                        NProgress.done();
                         deferred.resolve(data);
                     })
                     .error(function (reason) {
+                        NProgress.done();
                         deferred.reject;
                     });
 
@@ -49,12 +58,15 @@ define(["angular", "posts_storage", "application"], function (angular, localStor
 
             this.destroy = function (_id) {
                 var deferred = $q.defer();
+                NProgress.start();
 
                 $http({ method: "DELETE", url: "/api/posts/" + _id })
                     .success(function (data) {
+                        NProgress.done();
                         deferred.resolve(data);
                     })
                     .error(function (reason) {
+                        NProgress.done();
                         deferred.reject;
                     });
 

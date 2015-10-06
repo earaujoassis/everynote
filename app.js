@@ -1,28 +1,27 @@
-var app
-  , path = require("path")
-  , http = require("http")
-  , connect = require("connect")
-  , express = require("express")
-  , database = require("./config/database")
-  , routes = require("./config/routes")
-  , settings = require("nconf");
+var app,
+    path = require("path"),
+    http = require("http"),
+    connect = require("connect"),
+    express = require("express"),
+    database = require("./api/database"),
+    routes = require("./api/routes"),
+    settings = require("nconf");
+
+require("dotenv").load();
+settings.argv().env();
 
 app = express();
-settings
-    .argv()
-    .env()
-    .file({ file: "./config/" + app.settings.env + ".json" });
 
 app.configure(function () {
-    app.set("port", settings.get("port") || settings.get("server:port"));
+    app.set("port", settings.get("SERVER_PORT") || settings.get("PORT")) || 3000;
     app.set("moongoose", database(settings));
     app.use(connect.compress());
-    app.use(express.static(path.join(__dirname, "public"), { maxAge: settings.get("maxAge") }));
+    app.use(express.static(path.join(__dirname, "public"), { maxAge: settings.get("SERVER_MAX_AGE") }));
     app.use(express.favicon(__dirname + "/public/favicon.ico"), { maxAge: 25920000000 });
     app.use(express.logger("dev"));
     app.use(express.methodOverride());
     app.use(express.bodyParser());
-    app.use(express.cookieParser(settings.get("server:cookieSecret")));
+    app.use(express.cookieParser(settings.get("SERVER_COOKIE_SECRET")));
     app.use(app.router);
     routes(app);
     app.use(express.errorHandler());
@@ -33,7 +32,7 @@ app.configure("development", function () {
 
     app.use(express.session({
         store: new MemoryStore(),
-        secret: settings.get("server:sessionSecret")
+        secret: settings.get("SERVER_SESSION_SECRET")
     }));
 });
 
@@ -42,14 +41,14 @@ app.configure("production", function () {
 
     app.use(express.session({
         store: new RedisStore({
-            host: settings.get("redis:host"),
-            port: settings.get("redis:port")
+            host: settings.get("REDIS_HOST"),
+            port: settings.get("REDIS_PORT")
         }),
-        secret: settings.get("server:sessionSecret")
+        secret: settings.get("SERVER_SESSION_SECRET")
     }));
 });
 
 http.createServer(app).listen(app.get("port"), function () {
-    var environment = process.env.NODE_ENV || "unknown";
-    console.log(["Express server listening on port ", app.get("port"), " (", environment, ")"].join(''));
+    var environment = settings.get("NODE_ENV") || "development - defaulted";
+    console.log(["Express server listening on port ", app.get("port"), " (", environment, ")"].join(""));
 });

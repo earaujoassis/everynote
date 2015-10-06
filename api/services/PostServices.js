@@ -1,6 +1,6 @@
-var Q = require("q")
-  , PostModel = require("../models/PostModel")
-  , BaseServices = require("./BaseServices");
+var Q = require("q"),
+    PostModel = require("../models/PostModel"),
+    BaseServices = require("./BaseServices");
 
 PostServices = BaseServices.extend({
     model: PostModel,

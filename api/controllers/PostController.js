@@ -1,5 +1,5 @@
-var BaseController = require("./BaseController")
-  , PostServices = require("../services/PostServices");
+var BaseController = require("./BaseController"),
+    PostServices = require("../services/PostServices");
 
 module.exports = BaseController.extend({
     getMethod: function (req, res) {
@@ -27,8 +27,8 @@ module.exports = BaseController.extend({
     },
 
     putMethod: function (req, res) {
-        var subject = this
-          , postId = req.params.id || req.body.id || req.body._id;
+        var subject = this,
+            postId = req.params.id || req.body.id || req.body._id;
 
         if (!!postId) {
             delete req.body._id;
@@ -45,8 +45,8 @@ module.exports = BaseController.extend({
     },
 
     deleteMethod: function (req, res) {
-        var subject = this
-          , postId = req.params.id || req.body.id || req.body._id;
+        var subject = this,
+            postId = req.params.id || req.body.id || req.body._id;
 
         if (!!postId) {
             PostServices

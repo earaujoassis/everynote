@@ -2,32 +2,31 @@
 
 module.exports = function (grunt) {
 
-    var path = require("path")
-      , async = require("async")
-      , settings = require("nconf")
-      , database
-      , modelsFolder
-      , seedData;
+    var path = require("path"),
+        async = require("async"),
+        settings = require("nconf"),
+        database,
+        modelsFolder,
+        seedData;
 
+    require("dotenv").load();
     settings.argv().env();
 
     grunt.registerMultiTask("seed", "Seed mongoDB database with data.", function () {
         var done = this.async();
 
-        var functionsAsync = []
-          , models
-          , options = this.options({
-                database: "config/database",
+        var functionsAsync = [],
+            models,
+            options = this.options({
+                database: "api/database",
                 modelsFolder: "api/models/",
-                seedData: "config/seed",
-                environmentSettings: "config/development.json",
+                seedData: "tasks/seed.json",
                 cwd: "../"
           });
 
         if (options.cwd.substr(-1, 1) !== "/") {
             options.cwd = options.cwd + "/";
         }
-        settings.file({ file: options.cwd + options.environmentSettings });
         database = require(options.cwd + options.database)(settings);
         modelsFolder = options.cwd + options.modelsFolder;
         seedData = require(options.cwd + options.seedData);
@@ -70,5 +69,4 @@ module.exports = function (grunt) {
             }
         );
     });
-
 };

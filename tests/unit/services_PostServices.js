@@ -1,9 +1,9 @@
-var async = require("async")
-  , expect = require("chai").expect
-  , check = require(process.cwd() + "/tests").check
-  , database = require(process.cwd() + "/tests").database
-  , PostServices = require(process.cwd() + "/api/services/PostServices")
-  , PostModel = require(process.cwd() + "/api/models/PostModel");
+var async = require("async"),
+    expect = require("chai").expect,
+    check = require(process.cwd() + "/tests").check,
+    database = require(process.cwd() + "/tests").database,
+    PostServices = require(process.cwd() + "/api/services/PostServices"),
+    PostModel = require(process.cwd() + "/api/models/PostModel");
 
 describe("api/services/PostServices", function () {
 
@@ -96,8 +96,8 @@ describe("api/services/PostServices", function () {
         var post = {
                 title: "Update testing",
                 text: "Duis feugiat, lorem amet."
-            }
-          , savedPost;
+            },
+            savedPost;
 
         before(function (done) {
             PostServices
@@ -137,8 +137,8 @@ describe("api/services/PostServices", function () {
         var post = {
                 title: "Destroy this post",
                 text: "Erat odio tempor diam"
-            }
-          , savedPost;
+            },
+            savedPost;
 
         before(function (done) {
             PostServices

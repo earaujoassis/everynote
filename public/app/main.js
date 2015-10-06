@@ -4,7 +4,6 @@ require.config({
         q: "../components/q/q",
         underscore: "../components/underscore/underscore",
         pouchdb: "../components/pouchdb/dist/pouchdb-nightly.min",
-        offline: "../components/offline/offline.min",
         angular: "../components/angular/angular.min",
         ngResource: "../components/angular-resource/angular-resource.min",
         ngRoute: "../components/angular-route/angular-route.min",
@@ -93,6 +92,9 @@ require([
             }
         })
         .ready();
+
+    Offline.options = {checkOnLoad: true, checks: {xhr: {url: '/api/connection-test'}}};
+    Offline.check();
 
     angular.element(document).ready(function () {
         angular.bootstrap(document, ["app"]);

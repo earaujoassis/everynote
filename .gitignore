@@ -1,7 +1,5 @@
-node_modules/
-public/components/
-config/development.json
-config/production.json
-config/test.json
+node_modules
+public/components
 *.min.js
 *.css
+.env

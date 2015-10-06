@@ -1,5 +1,5 @@
-var Proto = require('uberproto')
-  , Q = require("q");
+var Proto = require('uberproto'),
+    Q = require("q");
 
 module.exports = Proto.extend({
     model: null,
@@ -19,8 +19,8 @@ module.exports = Proto.extend({
     },
 
     save: function (data) {
-        var deferred = Q.defer()
-          , object = new this.model(data);
+        var deferred = Q.defer(),
+            object = new this.model(data);
 
         object.save(function (err) {
             if (err) {

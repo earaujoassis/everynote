@@ -5,14 +5,15 @@
   </div>
   <div class="meta-box">
     <div class="row" role="menu">
-      <span class="option col-md-3"><i class="icon-time"></i> <time datetime="{{ post.date | date:'yyyy-mm-dd' }}" class="datetime">{{ post.date | date:'MMM d, yyyy' }}</time></span>
+      <span class="option col-md-3"><i class="fa fa-clock-o"></i> <time datetime="{{ post.date | date:'yyyy-mm-dd' }}" class="datetime">{{ post.date | date:'MMM d, yyyy' }}</time></span>
       <span class="option col-md-3">
-        <i class="icon-favorite"></i>
+        <i ng-show="!post.favorite" class="fa fa-star-o"></i>
         <a href="#" ng-show="!post.favorite" ng-click="setFavoritePost(post._id, true)" title="Favorite">Love it?</a>
+        <i ng-show="post.favorite" class="fa fa-star"></i>
         <span ng-show="post.favorite">It's favorite! <a href="#" ng-click="setFavoritePost(post._id, false)" title="Unfavorite">(Undo?)</a></span>
       </span>
-      <span class="option col-md-3"><a href="/posts/{{ post._id }}" title="Update"><i class="icon-edit"></i> Update</a></span>
-      <span class="option col-md-3"><a href="#" ng-click="removePost(post._id)" title="Remove"><i class="icon-delete"></i> Remove</a></span>
+      <span class="option col-md-3"><a href="/posts/{{ post._id }}" title="Update"><i class="fa fa-pencil-square-o"></i> Update</a></span>
+      <span class="option col-md-3"><a href="#" ng-click="removePost(post._id)" title="Remove"><i class="fa fa-recycle"></i> Remove</a></span>
     </div>
   </div>
 </article>

@@ -1,10 +1,9 @@
-var settings = require("nconf")
-  , database = require(process.cwd() + "/config/database");
+var settings = require("nconf"),
+    database = require(process.cwd() + "/api/database");
 
-settings
-    .argv()
-    .env()
-    .file({ file: process.cwd() + "/config/test.json" });
+require("dotenv").load();
+settings.argv().env();
+settings.set("NODE_ENV", "test");
 database = database(settings);
 
 module.exports = {

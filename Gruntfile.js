@@ -5,9 +5,9 @@ module.exports = function (grunt) {
         meta: {
             banner: [
                 '/*\n',
-                ' *  Ea Stack\n',
+                ' *  Everynote\n',
                 ' *\n',
-                ' *  Copyright (c) <%= grunt.template.today("yyyy") %> Ewerton Assis <hey@ewerton-araujo.com>\n',
+                ' *  Copyright (c) <%= grunt.template.today("yyyy") %> Ewerton Assis <hello@dearaujoassis.com>\n',
                 ' *  MIT License\n',
                 ' */\n'].join('')
         },
@@ -85,10 +85,9 @@ module.exports = function (grunt) {
         seed: {
             development: {
                 options: {
-                    database: 'config/database',
+                    database: 'api/database',
                     modelsFolder: 'api/models/',
-                    seedData: 'config/seed',
-                    environmentSettings: 'config/development.json',
+                    seedData: 'tasks/seed',
                     cwd: __dirname
                 }
             }
