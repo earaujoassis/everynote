@@ -7,7 +7,7 @@ module.exports = function (grunt) {
                 '/*\n',
                 ' *  Everynote\n',
                 ' *\n',
-                ' *  Copyright (c) <%= grunt.template.today("yyyy") %> Ewerton Assis <hello@dearaujoassis.com>\n',
+                ' *  Copyright (c) <%= grunt.template.today("yyyy") %> Ewerton Assis <earaujoassis@gmail.com>\n',
                 ' *  MIT License\n',
                 ' */\n'].join('')
         },
